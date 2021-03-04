@@ -1,5 +1,7 @@
 package com.training.micro.configs;
 
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +11,12 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 @EnableScheduling
 public class OrderConfig {
+
+
+    @Bean
+    public MessageConverter messageConverter() {
+        return new Jackson2JsonMessageConverter();
+    }
 
     @Bean
     @LoadBalanced
