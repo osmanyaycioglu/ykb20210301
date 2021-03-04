@@ -7,6 +7,7 @@ public class Order {
     private String       customerName;
     private Long         customerId;
     private List<String> meals;
+    private Long         amount;
 
     public String getCustomerName() {
         return this.customerName;
@@ -41,6 +42,14 @@ public class Order {
                + ", meals="
                + this.meals
                + "]";
+    }
+
+    public Long getAmount() {
+        return this.amount;
+    }
+
+    public void setAmount(final Long amountParam) {
+        this.amount = amountParam;
     }
 
 

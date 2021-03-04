@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.training.micro.clients.IAccountingClient;
+import com.training.micro.clients.error.RestClientException;
 import com.training.micro.models.Order;
 import com.training.micro.models.PaymentRequest;
 
@@ -27,11 +28,11 @@ public class PaymentService {
                                      String.class);
     }
 
-    public String placeOrder2(final Order order) {
+    public String placeOrder2(final Order order) throws RestClientException {
         PaymentRequest paymentRequestLoc = new PaymentRequest();
         paymentRequestLoc.setCustomerId(order.getCustomerId());
         paymentRequestLoc.setCustomerName(order.getCustomerName());
-        paymentRequestLoc.setAmount(100L);
+        paymentRequestLoc.setAmount(order.getAmount());
         return this.iac.pay(paymentRequestLoc);
     }
 

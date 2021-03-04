@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.training.micro.clients.error.RestClientException;
 import com.training.micro.models.PaymentRequest;
 
 @FeignClient("ACCOUNTING")
@@ -12,6 +13,6 @@ import com.training.micro.models.PaymentRequest;
 public interface IAccountingClient {
 
     @PostMapping("/pay")
-    public String pay(@RequestBody final PaymentRequest pr);
+    public String pay(@RequestBody final PaymentRequest pr) throws RestClientException;
 
 }
