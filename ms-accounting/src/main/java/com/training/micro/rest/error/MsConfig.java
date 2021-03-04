@@ -1,4 +1,4 @@
-package com.training.micro.config;
+package com.training.micro.rest.error;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

@@ -1,10 +1,20 @@
-package com.training.micro.rest;
+package com.training.micro.models;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 
 public class PaymentRequest {
 
+    @NotEmpty
+    @Size(min = 2, max = 25)
     private String customerName;
+    @NotNull
+    @Positive
     private Long   customerId;
+    @NotNull
+    @Positive
     private Long   amount;
 
     public String getCustomerName() {

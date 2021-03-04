@@ -20,4 +20,9 @@ public class OrderController {
         return this.ps.placeOrder(orderParam);
     }
 
+    @PostMapping("/place2")
+    public String placeOrder2(final Order orderParam) {
+        return this.ps.placeOrder2(orderParam);
+    }
+
 }
